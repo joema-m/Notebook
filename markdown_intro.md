@@ -4,28 +4,44 @@
 
 ### 怎么调整表格
 
+* 用style标签  没用
+* 用html，比较麻烦
+
+```html
+<table>
+    <tr>
+        <th style="width:100px">名称</th>
+        <th>值</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <th>hellp</th>
+    </tr>
+</table>
+
+```
+
+<table>
+    <tr>
+        <th style="width:100px">名称</th>
+        <th>值</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <th>hell0</th>
+        <th>oooooooooooooooo</th>
+        <th>d</th>
+    </tr>
+</table>
+
+* 还是用暴力方法吧
+
+  加空格符：&nbsp; &nbsp; &nbsp; "&nbsp"&nbsp;
 
 
 
-<style>
-table th:first-of-type {
-    width: 20%;
-}
-table th:nth-of-type(2) {
-    width: 30%;
-}
-table th:nth-of-type(3) {
-    width: 50%;
-}
-</style>
 
 
-
-| ssssssssssssssssssssss | sssssssssssssssssssssssssssssssssssssss | sssssss |
-| ---------------------- | --------------------------------------- | ------- |
-|                        |                                         |         |
-|                        |                                         |         |
-|                        |                                         |         |
 
 
 
