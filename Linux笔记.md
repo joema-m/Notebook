@@ -154,3 +154,50 @@ chmod 600 .ssh/authorized_keys
 systemctl restart sshd
 ```
 
+
+
+
+
+## ssh反向代理
+
+* 需求
+
+  > A: 内网主机
+  >
+  > B: 公网服务器
+  >
+  > C: 自己的电脑
+
+* 步骤
+
+1. 在A上发起反向代理请求
+
+```shell
+ssh -fCNR B_ip:B_port:localhost:22 B_user@B_ip -p B_ssh_port
+例如：
+ssh -fCNR 64.64.239.22:2000:localhost:22 root@64.64.239.22 -p 22
+
+B_port为B的监听端口，可任意设置,注意避免与其他端口冲突
+如果B_ssh_port为22 则可省略
+-N：不执行任何指令
+-f：背景执行
+-R：主要建立reverse tunnel的参数
+
+```
+
+这一步的结果是：将A的ssh端口映射到B的监听端口，在B上直接ssh登录这个端口即可。
+
+2. 在C上的操作
+
+* 先登录B
+
+* 在B上进行如下操作
+
+  ```shell
+  ssh -p B_port  A_user@127.0.0.1
+  
+  端口为监听端口
+  注意这里的用户是A上的
+  ```
+
+  这样就能登录A了。
