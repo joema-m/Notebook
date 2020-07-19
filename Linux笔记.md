@@ -201,3 +201,66 @@ B_port为B的监听端口，可任意设置,注意避免与其他端口冲突
   ```
 
   这样就能登录A了。
+
+
+
+## Git基本用法
+
+### 1.安装
+安装完成后，打开命令行，输入：
+
+```sh
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+```
+
+### 2.添加远程仓库
+```sh
+git remote add origin git@github.com:Hello/Hello.git
+```
+
+
+### 3.无密码提交
+条件：
+> 1.使用 SSH 方式来代替 HTTPS 方式
+> 
+> 2.上传公钥到GitHub
+
+```sh
+# 生成公钥
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# 上传省略
+```
+
+```sh
+$git remote -v
+origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+origin  https://github.com/USERNAME/REPOSITORY.git (push)
+
+#修改
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+## 验证
+$git remote -v
+origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+origin  git@github.com:USERNAME/REPOSITORY.git (push)
+```
+
+### 4.设置代理
+```sh
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+#只对github.com
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+```
+
+由于我使用的是socks代理，也记录一下
+
+```sh
+git config --global http.proxy socks5://127.0.0.1:1080
+git config --global https.proxy socks5://127.0.0.1:1080
+```
+
+好像设置了https代理后出错，那就取消https的代理，留下http的。
