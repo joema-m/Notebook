@@ -1,0 +1,11 @@
+1、安装及使用：
+1.安装MikTeX (www.miktex.org )，选基本安装包或便携包均可
+
+ 
+
+2.把下载的texsword.dot拷到MSWord的启动目录
+(如“C:\Documents and Settings\<your user name>\Application Data\Microsoft\Word\STARTUP”)
+
+C:\Users\majun\AppData\Roaming\Microsoft\Word\STARTUP
+
+在word中的加载项中可看到

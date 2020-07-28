@@ -264,3 +264,54 @@ git config --global https.proxy socks5://127.0.0.1:1080
 ```
 
 好像设置了https代理后出错，那就取消https的代理，留下http的。
+
+
+
+## 配置Java环境
+
+jdk下载链接 ： https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8u211-later-5573849.html
+
+```sh
+tar -zxvf jdk-8u121-linxu-x64.tar.gz 
+
+sudo gedit /etc/profile
+#set java environment 
+export JAVA_HOME=/opt/java/jdk1.8.0_65
+export JRE_HOME=${JAVA_HOME}/jre 
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH 
+export PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:$PATH  
+
+source profile
+
+```
+
+
+
+## 查看md5
+
+* Windows
+
+  ```sh
+  查看MD5值：
+  
+  certutil -hashfile 文件名  MD5
+  
+  查看 SHA1
+  
+  certutil -hashfile 文件名  SHA1 
+  
+  查看SHA256
+  
+  certutil -hashfile 文件名  SHA256
+  
+  ```
+
+* Linux
+
+  ```sh
+  md5sum 文件名
+  ```
+
+  
+
+  
