@@ -265,6 +265,21 @@ git config --global https.proxy socks5://127.0.0.1:1080
 
 好像设置了https代理后出错，那就取消https的代理，留下http的。
 
+### 5.查看git配置
+
+```sh
+#查看系统config
+git config --system --list
+
+#查看当前用户（global）配置
+git config --global  --list
+
+#查看当前仓库配置信息
+git config --local  --list
+```
+
+
+
 
 
 ## 配置Java环境
